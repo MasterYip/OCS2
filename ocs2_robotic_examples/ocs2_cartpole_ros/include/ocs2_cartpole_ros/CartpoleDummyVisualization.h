@@ -36,22 +36,26 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "ocs2_cartpole/definitions.h"
 
-namespace ocs2 {
-namespace cartpole {
+namespace ocs2
+{
+  namespace cartpole
+  {
+    
+    
+    class CartpoleDummyVisualization : public DummyObserver
+    {
+    public:
+      explicit CartpoleDummyVisualization(ros::NodeHandle &nodeHandle) { launchVisualizerNode(nodeHandle); }
 
-class CartpoleDummyVisualization : public DummyObserver {
- public:
-  explicit CartpoleDummyVisualization(ros::NodeHandle& nodeHandle) { launchVisualizerNode(nodeHandle); }
+      ~CartpoleDummyVisualization() override = default;
 
-  ~CartpoleDummyVisualization() override = default;
+      void update(const SystemObservation &observation, const PrimalSolution &policy, const CommandData &command) override;
 
-  void update(const SystemObservation& observation, const PrimalSolution& policy, const CommandData& command) override;
+    private:
+      void launchVisualizerNode(ros::NodeHandle &nodeHandle);
 
- private:
-  void launchVisualizerNode(ros::NodeHandle& nodeHandle);
+      ros::Publisher jointPublisher_;
+    };
 
-  ros::Publisher jointPublisher_;
-};
-
-}  // namespace cartpole
-}  // namespace ocs2
+  } // namespace cartpole
+} // namespace ocs2
