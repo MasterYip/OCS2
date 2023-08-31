@@ -10,7 +10,8 @@ Makefile
 *~
 *.settings*
 */doc/html/
-Doxyfile
+DoxyGenerated
+# Doxyfile
 *.orig
 *.tag
 *.tmp
