@@ -47,8 +47,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *   return vec[n].dynamics;
  * }
  */
-#define CREATE_INTERPOLATION_ACCESS_FUNCTION(FIELD) \
-  inline auto FIELD(const std::vector<ocs2::ModelData>& vec, size_t ind)->const decltype(vec[ind].FIELD)& { return vec[ind].FIELD; }
+#define CREATE_INTERPOLATION_ACCESS_FUNCTION(FIELD)                                                         \
+  inline auto FIELD(const std::vector<ocs2::ModelData>& vec, size_t ind)->const decltype(vec[ind].FIELD)& { \
+    return vec[ind].FIELD;                                                                                  \
+    }
 
 #define CREATE_INTERPOLATION_ACCESS_FUNCTION_SUBFIELD(FIELD, SUBFIELD)                                                            \
   inline auto FIELD##_##SUBFIELD(const std::vector<ocs2::ModelData>& vec, size_t ind)->const decltype(vec[ind].FIELD.SUBFIELD)& { \
