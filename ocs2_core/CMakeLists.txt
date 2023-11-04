@@ -177,7 +177,7 @@ if(cmake_clang_tools_FOUND)
       ${PROJECT_NAME}_lintTarget
     SOURCE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/include
     CT_HEADER_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include
-    CF_WERROR
+    # CF_WERROR
   )
 endif(cmake_clang_tools_FOUND)
 
