@@ -39,6 +39,8 @@ namespace legged_robot {
 
 class SwingTrajectoryPlanner {
  public:
+
+  //Default swing trajectory config
   struct Config {
     scalar_t liftOffVelocity = 0.0;
     scalar_t touchDownVelocity = 0.0;
@@ -53,8 +55,22 @@ class SwingTrajectoryPlanner {
   void update(const ModeSchedule& modeSchedule, const feet_array_t<scalar_array_t>& liftOffHeightSequence,
               const feet_array_t<scalar_array_t>& touchDownHeightSequence);
 
+  /**
+   * @brief Get the Zvelocity Constraint(i.e. Expected Trajectory)
+   * 
+   * @param leg 
+   * @param time 
+   * @return scalar_t Expected(Constraint) velocity at specific time
+   */
   scalar_t getZvelocityConstraint(size_t leg, scalar_t time) const;
 
+  /**
+   * @brief Get the Zposition Constraint(i.e. Expected Trajectory)
+   * 
+   * @param leg 
+   * @param time 
+   * @return scalar_t Expected(Constraint) position at specific time
+   */
   scalar_t getZpositionConstraint(size_t leg, scalar_t time) const;
 
  private:

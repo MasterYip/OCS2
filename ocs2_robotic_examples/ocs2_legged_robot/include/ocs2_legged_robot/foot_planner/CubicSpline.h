@@ -34,6 +34,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 namespace ocs2 {
 namespace legged_robot {
 
+/**
+ * @brief 1D Cubic Hermite Spline(z direction)
+ * 
+ */
 class CubicSpline {
  public:
   struct Node {
@@ -50,6 +54,12 @@ class CubicSpline {
 
   scalar_t acceleration(scalar_t time) const;
 
+  /**
+   * @brief Some intermediate values?
+   * 
+   * @param t 
+   * @return scalar_t 
+   */
   scalar_t startTimeDerivative(scalar_t t) const;
 
   scalar_t finalTimeDerivative(scalar_t t) const;
