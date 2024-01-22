@@ -50,8 +50,21 @@ class SwingTrajectoryPlanner {
 
   SwingTrajectoryPlanner(Config config, size_t numFeet);
 
+  /**
+   * @brief Update with terrain height
+   * @note This suitable for flat terrain
+   * @param modeSchedule Mode scheduler
+   * @param terrainHeight flat terrain height
+   */
   void update(const ModeSchedule& modeSchedule, scalar_t terrainHeight);
 
+  /**
+   * @brief Update with liftOffHeightSequence and touchDownHeightSequence
+   * 
+   * @param modeSchedule 
+   * @param liftOffHeightSequence lift off height sequence for each leg
+   * @param touchDownHeightSequence touch down height sequence for each leg
+   */
   void update(const ModeSchedule& modeSchedule, const feet_array_t<scalar_array_t>& liftOffHeightSequence,
               const feet_array_t<scalar_array_t>& touchDownHeightSequence);
 
