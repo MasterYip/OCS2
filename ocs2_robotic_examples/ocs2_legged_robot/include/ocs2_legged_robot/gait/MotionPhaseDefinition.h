@@ -44,9 +44,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 namespace ocs2 {
 namespace legged_robot {
 
+// IMPORTANT
 enum ModeNumber {  // {LF, RF, LH, RH}
-  FLY = 0,
-  RH = 1,
+  FLY = 0, // All legs are in the air
+  RH = 1, // RH in contact
   LH = 2,
   LH_RH = 3,
   RF = 4,
@@ -60,7 +61,7 @@ enum ModeNumber {  // {LF, RF, LH, RH}
   LF_RF = 12,
   LF_RF_RH = 13,
   LF_RF_LH = 14,
-  STANCE = 15,
+  STANCE = 15, // All legs are in contact
 };
 
 /******************************************************************************************************/

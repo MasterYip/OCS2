@@ -37,7 +37,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 namespace ocs2 {
 
 /**
- * Defines a sequence of N modes, separated by N-1 event times
+ * @brief Defines a sequence of N modes, separated by N-1 event times
+ *
  */
 struct ModeSchedule {
   /**

@@ -37,6 +37,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 namespace ocs2 {
 namespace legged_robot {
 
+/**
+ * @brief Swing trajectory planner that offers a z-position and z-velocity constraint for each leg.
+ * 
+ */
 class SwingTrajectoryPlanner {
  public:
 
@@ -62,8 +66,8 @@ class SwingTrajectoryPlanner {
    * @brief Update with liftOffHeightSequence and touchDownHeightSequence
    * 
    * @param modeSchedule 
-   * @param liftOffHeightSequence lift off height sequence for each leg
-   * @param touchDownHeightSequence touch down height sequence for each leg
+   * @param liftOffHeightSequence end-effector height sequence for each leg when lifting off
+   * @param touchDownHeightSequence end-effector height sequence for each leg when touching down
    */
   void update(const ModeSchedule& modeSchedule, const feet_array_t<scalar_array_t>& liftOffHeightSequence,
               const feet_array_t<scalar_array_t>& touchDownHeightSequence);
@@ -95,7 +99,7 @@ class SwingTrajectoryPlanner {
   feet_array_t<std::vector<bool>> extractContactFlags(const std::vector<size_t>& phaseIDsStock) const;
 
   /**
-   * Finds the take-off and touch-down times indices for a specific leg.
+   * Finds the lift-off and touch-down times indices for a specific leg.
    *
    * @param index
    * @param contactFlagStock
